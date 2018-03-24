@@ -7,7 +7,7 @@ const database = require('knex')(configuration);
 
 app.use(bodyParser.json());
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Move In Colorado';
 
 app.get('/', (request, response) => {
