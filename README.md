@@ -4,11 +4,9 @@
 
   - hopefully this will help folks get their children into the best schools that they can afford.
 
-**
-  - you will need a google maps api key.
+** you will need a google maps api key.
 
-**
-  - to start the servers:
-    - start the server ```npm run express```
-    - start creat react app ```npm start```
+** to start the servers:
+  - start the server ```npm run express```
+  - start creat react app ```npm start```
 
