@@ -9,7 +9,9 @@ export class MapContainer extends React.Component {
   }
 
   loadMap() {
+    console.log('loadMap');
     if (this.props && this.props.google) {
+      console.log('google is available');
       // google is available
       const { google } = this.props;
       const maps = google.maps;
