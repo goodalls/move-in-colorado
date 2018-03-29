@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Firebase Google Auth</title>
+  <style type="text/css">
+    body,
+    button,
+    html {
+      text-align: center
+    }
+
+    body,
+    html {
+      margin: 50px;
+      font-family: 'Helvetica Neue'
+    }
+
+    button {
+      border: 0;
+      background-color: pink;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 15px 30px;
+      margin: 0 auto
+    }
+
+    #accountDetails {
+      font-family: 'Courier New';
+      border: 1px solid #eee;
+      padding: 20px;
+      margin: 20px auto;
+      overflow-wrap: break-word
+    }
+  </style>
+</head>
+
+<body>
+  <button id="signIn">Sign In</button>
+  <div id="accountDetails"></div>
+
+  <!-- 
+      STEP ONE:
+      Add Firebase scripts from the CDN to your page. You will
+      only need the firebase-app.js file & the firebase-auth.js file.
+      HINT: https://firebase.google.com/docs/web/setup
+    -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+
+  <script type="text/javascript">
+    function toggleSignIn() {
+      console.log(firebase.auth().currentUser);
+
+      // STEP THREE:
+      // Check if there is a currentUser authenticated. If not, register
+      // a new GoogleAuthProvider and trigger a signInWithPopup.
+      // Otherwise, trigger a signOut.
+      // HINT: https://firebase.google.com/docs/auth/web/google-signin
+
+      if (!firebase.auth().currentUser) {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          // ...
+        }).catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+      } else {
+        firebase.auth().signOut().then(function () {
+          // Sign-out successful.
+        }).catch(function (error) {
+          // An error happened.
+        });
+      }
+    }
+
+
+    function initApp() {
+      // STEP TWO:
+      // Add your app config. You will need your app's apiKey and authDomain.
+      // HINT: The configuration values for your app can be found on the 
+      // authentication page in the top right corner when you click 'WEB SETUP'
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALI7kdPYqlK0h4sMWW5Db8IRazyDshF64",
+        authDomain: "move-to-colorado-1521834386670.firebaseapp.com",
+        databaseURL: "https://move-to-colorado-1521834386670.firebaseio.com",
+        projectId: "move-to-colorado-1521834386670",
+        storageBucket: "move-to-colorado-1521834386670.appspot.com",
+        messagingSenderId: "546398583974"
+      };
+      firebase.initializeApp(config);
+
+      // STEP FOUR:
+      // Listen for changes in authentication state through firebase.
+      // If there is a user, update the button text to say 'Sign Out', and update
+      // the accountDetails div to display JSON.stringify(user)
+      // If there is NOT a user, update the button text to say 'Sign In', and update
+      // the accountDetails div to display 'No user data available'
+      // HINT: https://firebase.google.com/docs/auth/web/manage-users
+      // Click handler for sign in/sign out button that calls toggleSignIn
+      document.getElementById('signIn').addEventListener('click', toggleSignIn, false);
+    }
+    window.onload = function () {
+      initApp();
+    };
+  </script>
+
+</html>
