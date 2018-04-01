@@ -1,12 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-
-export const SIGN_UP = '/signup';
-export const SIGN_IN = '/signin';
-export const LANDING = '/';
-export const HOME = '/home';
-export const ACCOUNT = '/account';
-export const PASSWORD_FORGET = '/pw-forget';
+import Login from '../Login/Login';
 
 const Routes = () => {
   
@@ -15,30 +9,30 @@ const Routes = () => {
     <div>
       <Route
         exact path='/'
-        component={() => <LandingPage />}
+        component={() => <Login />}
       />
       <Route
         exact path='/signup'
-        component={() => <SignUpPage />}
+        component={() => <Login />}
       />
       <Route
         exact path='/signin'
-        component={() => <SignInPage />}
+        component={() => <Login />}
       />
       <Route
         exact path='/pw-forget'
-        component={() => <PasswordForgetPage />}
+        component={() => <Login />}
       />
       <Route
         exact path='/home'
-        component={() => <HomePage />}
+        component={() => <Login />}
       />
       <Route
         exact path='/account'
-        component={() => <AccountPage />}
+        component={() => <Login />}
       />
     </div>
   );
 };
 
-export default Routes
+export default Routes;
