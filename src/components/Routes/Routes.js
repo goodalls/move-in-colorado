@@ -3,33 +3,31 @@ import { Route } from 'react-router-dom';
 import Login from '../Login/Login';
 
 const Routes = () => {
-  
-
   return (
     <div>
       <Route
         exact path='/'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
       <Route
         exact path='/signup'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
       <Route
         exact path='/signin'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
       <Route
         exact path='/pw-forget'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
       <Route
         exact path='/home'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
       <Route
         exact path='/account'
-        component={() => <Login />}
+        render={(props) => <Login match={props.match.url} />}
       />
     </div>
   );
