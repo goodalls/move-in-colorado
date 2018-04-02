@@ -52,6 +52,10 @@ export class MapContainer extends React.Component {
   }
 }
 
+MapContainer.propTypes = {
+  google: PropTypes.string
+};
+
 export default GoogleApiWrapper({
   apiKey: key
 })(MapContainer);
