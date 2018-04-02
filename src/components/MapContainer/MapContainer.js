@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { key } from '../../key';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export class MapContainer extends React.Component {
   componentDidMount() {

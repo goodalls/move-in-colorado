@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './App.css';
 import {MapContainer} from '../MapContainer/MapContainer';
 import Routes from '../Routes/Routes';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   render() {

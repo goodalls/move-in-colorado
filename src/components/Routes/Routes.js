@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Login from '../Login/Login';
+import PropTypes from 'prop-types';
 
 const Routes = () => {
   return (
@@ -31,6 +32,10 @@ const Routes = () => {
       />
     </div>
   );
+};
+
+Routes.propTypes = {
+  match: PropTypes.string
 };
 
 export default Routes;
