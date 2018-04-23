@@ -3,10 +3,10 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/movein',
     migrations: {
-      directory: './db/migrations'
+      directory: './src/db/migrations'
     },
     seeds: {
-      directory: './db/seeds/development'
+      directory: './src/db/seeds/development'
     },
     useNullAsDefault: true
   }
